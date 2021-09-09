@@ -1,3 +1,4 @@
+import Nav from './Nav.js'
 import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
 
@@ -5,15 +6,18 @@ import styles from '../styles/Layout.module.css'
 // called "children". Have no clue why.
 const Layout = ({children}) => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <Nav />
+      <div className={styles.container}>
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main className={styles.main}>
-          {children}
-      </main>
-    </div>
+        <main className={styles.main}>
+            {children}
+        </main>
+      </div>
+    </>
   )
 }
 
