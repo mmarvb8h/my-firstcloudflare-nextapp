@@ -8,16 +8,28 @@ import Login from './Login'
 // called "children". Have no clue why.
 const Layout = ({children}) => {
   // Login Modal starts out closed.
-  const [showLoginState, setShowLogin] = useState(true)
+  const [showLoginState, setShowLogin] = useState(false)
 
-  function handleClickFromLogin() {
+  // function handleClickFromLogin() {
+  //   // Close Login Modal.
+  //   setShowLogin(false)
+  // }
+
+  const handleClickFromLoginWin = () => {
     // Close Login Modal.
     setShowLogin(false)
   }
 
+  const handleLoginLinkClick = () => {
+    // Open Login Modal.
+    setShowLogin(true)
+  }
+
   return (
     <>
-      <MyNav />
+      <MyNav 
+        handleLoginLinkClick = { handleLoginLinkClick } 
+      />
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
@@ -29,7 +41,7 @@ const Layout = ({children}) => {
 
         <Login 
           showit = { showLoginState }
-          handleClose = { handleClickFromLogin } 
+          handleClose = { handleClickFromLoginWin } 
         />
         
       </div>
